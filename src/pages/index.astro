@@ -1,12 +1,59 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
+import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
+import GitHubIcon from "../assets/icons/GitHubIcon.astro";
+import MailIcon from "../assets/icons/MailIcon.astro";
+import SocialPill from "../components/SocialPill.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<main>
-	</main>
+    <main>
+        <section class="w-full lg:w-[740px] mx-auto py-44">
+            <img class="rounded-full w-12 h-12 mb-5"
+                 src="src/assets/javvi-photo.png"
+                 alt="javvi photo"
+            />
+            <h1 class="text-white text-4xl font-bold flex justific-center flex-row gap-x-4 pb-4">Hola, soy Javier
+                Fernández
+                <a href="https://linkedin.com/in/javvifernandez"
+                   target="_blank"
+                   rel="noopener"
+                   class="flex justify-center items-center mt-1 text-white">
+                    <Badge>Disponible para trabajar</Badge>
+                </a>
+            </h1>
+            <h2 class="text-xl text-wrap">
+                <span>Desarrollador Junior</span>
+                <span class="text-purple-300/100">especializado en el desarrollo de Aplicaciones
+                Multiplataforma.</span>
+
+                <span class="text-red-200/80">Tengo 21 años de Córdoba, España 🇪🇸.</span>
+                <br>
+                <span>Estoy por comenzar el ciclo de Desarrollo de Aplicaciones Web y busco
+                    mi primer trabajo como desarrollador.
+                </span>
+            </h2>
+
+            <nav class="flex gap-x-4 text-white mt-5">
+                <SocialPill href="https://linkedin.com/in/javvifernandez">
+                    <LinkedInIcon class="w-5 h-5 me-2"/>
+                    LinkedIn
+                </SocialPill>
+
+                <SocialPill href="https://github.com/JavviFdeez">
+                    <GitHubIcon class="w-5 h-5 me-2"/>
+                    GitHub
+                </SocialPill>
+
+                <SocialPill href="mailto:javidez195@gmail.com">
+                    <MailIcon class="w-5 h-5 me-2"/>
+                    Contáctame
+                </SocialPill>
+            </nav>
+        </section>
+    </main>
 </Layout>
