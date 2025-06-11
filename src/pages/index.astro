@@ -4,16 +4,19 @@ import Layout from '../layouts/Layout.astro';
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
 import GitHubIcon from "../assets/icons/GitHubIcon.astro";
 import MailIcon from "../assets/icons/MailIcon.astro";
+import CVIcon from "../assets/CVIcon.astro";
 import SocialPill from "../components/SocialPill.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
+    description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
+    <div>
     <main>
         <section class="w-full lg:w-[740px] mx-auto py-44">
-            <img class="rounded-full w-12 h-12 mb-5"
+            <img class="rounded-full size-12 mb-5"
                  src="src/assets/javvi-photo.png"
                  alt="javvi photo"
             />
@@ -40,18 +43,23 @@ import SocialPill from "../components/SocialPill.astro";
 
             <nav class="flex gap-x-4 text-white mt-5">
                 <SocialPill href="https://linkedin.com/in/javvifernandez">
-                    <LinkedInIcon class="w-5 h-5 me-2"/>
+                    <LinkedInIcon class="size-5 me-2"/>
                     LinkedIn
                 </SocialPill>
 
                 <SocialPill href="https://github.com/JavviFdeez">
-                    <GitHubIcon class="w-5 h-5 me-2"/>
+                    <GitHubIcon class="size-5 me-2"/>
                     GitHub
                 </SocialPill>
 
                 <SocialPill href="mailto:javidez195@gmail.com">
-                    <MailIcon class="w-5 h-5 me-2"/>
+                    <MailIcon class="size-5 me-2"/>
                     Contáctame
+                </SocialPill>
+
+                <SocialPill href="src/assets/Curriculum_Vitae_Javier_fernandez.pdf" download="CV_Javier_Fernandez.pdf">
+                    <CVIcon class="size-5 me-2"/>
+                    Descargar CV
                 </SocialPill>
             </nav>
         </section>
