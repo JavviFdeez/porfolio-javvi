@@ -9,20 +9,17 @@ import SocialPill from "../components/SocialPill.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../assets/SectionContainer.astro";
 import ExperienceIcon from "../assets/icons/ExperienceIcon.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
-    description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
-    <main>
+        description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
+    <main class="px-4">
         <SectionContainer class="py-44 pb-24">
             <img class="rounded-full size-12 mb-5"
                  src="src/assets/javvi-photo.png"
                  alt="javvi photo"
             />
-            <h1 class="text-white text-4xl font-bold flex justific-center flex-row gap-x-4 pb-4">Hola, soy Javier
+            <h1 class="text-white text-3xl md:text-4xl lg:text-4xl font-bold flex justific-center flex-row gap-x-4 pb-6 lg:pb-10">Hola, soy Javier
                 Fernández
                 <a href="https://linkedin.com/in/javvifernandez"
                    target="_blank"
@@ -31,44 +28,47 @@ import ExperienceIcon from "../assets/icons/ExperienceIcon.astro";
                     <Badge>Disponible para trabajar</Badge>
                 </a>
             </h1>
-            <h2 class="text-xl text-wrap">
+            <h2 class="text-xl lg:text-2xl text-wrap max-w-[1000px]">
                 <span>Desarrollador Junior</span>
-                <span class="text-purple-300/100">especializado en el desarrollo de Aplicaciones
+                <span class="text-purple-500">especializado en el desarrollo de Aplicaciones
                 Multiplataforma.</span>
 
-                <span class="text-red-200/80">Tengo 21 años de Córdoba, España 🇪🇸.</span>
-                <br>
-                <span>Estoy por comenzar el ciclo de Desarrollo de Aplicaciones Web y busco
+                <span class="text-gray-200/90">Tengo 21 años de Córdoba, España.</span>
+
+                <span class="text-white-200/90">Estoy por comenzar el ciclo de Desarrollo de Aplicaciones Web y busco
                     mi primer trabajo como desarrollador.
                 </span>
             </h2>
 
-            <nav class="flex gap-x-4 text-white mt-5">
+            <nav class="flex gap-4 text-white mt-5 flex-wrap">
                 <SocialPill href="https://linkedin.com/in/javvifernandez">
-                    <LinkedInIcon class="size-5 me-2"/>
+                    <LinkedInIcon class="size-4 md:size-6 me-2"/>
                     LinkedIn
                 </SocialPill>
 
                 <SocialPill href="https://github.com/JavviFdeez">
-                    <GitHubIcon class="size-5 me-2"/>
+                    <GitHubIcon class="size-4 md:size-5 me-2"/>
                     GitHub
                 </SocialPill>
 
                 <SocialPill href="mailto:javidez195@gmail.com">
-                    <MailIcon class="size-5 me-2"/>
+                    <MailIcon class="size-4 md:size-5 me-2"/>
                     Contáctame
                 </SocialPill>
 
                 <SocialPill href="src/assets/Curriculum_Vitae_Javier_fernandez.pdf" download="CV_Javier_Fernandez.pdf">
-                    <CVIcon class="size-5 me-2"/>
+                    <CVIcon class="size-4 size-5 me-2"/>
                     Descargar CV
                 </SocialPill>
             </nav>
         </SectionContainer>
 
-        <SectionContainer>
-            <h2 class="text-2xl font-semibold mb-4 flex gap-x-2"><ExperienceIcon class="size-2" />EXPERIENCIA LABORAL</h2>
-            <Experience />
+        <SectionContainer id="experiencia">
+            <h2 class="text-2xl font-semibold mb-4 flex gap-x-3 items-center">
+                <ExperienceIcon class="size-7"/>
+                EXPERIENCIA LABORAL
+            </h2>
+            <Experience/>
         </SectionContainer>
     </main>
 </Layout>
