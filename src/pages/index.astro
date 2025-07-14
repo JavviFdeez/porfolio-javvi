@@ -9,6 +9,8 @@ import SocialPill from "../components/SocialPill.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../assets/SectionContainer.astro";
 import ExperienceIcon from "../assets/icons/ExperienceIcon.astro";
+import CodeIcon from "../assets/icons/CodeIcon.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
@@ -64,11 +66,19 @@ import ExperienceIcon from "../assets/icons/ExperienceIcon.astro";
         </SectionContainer>
 
         <SectionContainer id="experiencia">
-            <h2 class="text-2xl font-semibold mb-4 flex gap-x-3 items-center">
+            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center">
                 <ExperienceIcon class="size-7"/>
                 EXPERIENCIA LABORAL
             </h2>
             <Experience/>
+        </SectionContainer>
+
+        <SectionContainer id="proyectos">
+            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center">
+                <CodeIcon class="size-7"/>
+                PROYECTOS
+            </h2>
+            <Projects />
         </SectionContainer>
     </main>
 </Layout>

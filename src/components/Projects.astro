@@ -1,0 +1,60 @@
+---
+import JavaIcon from '../assets/icons/JavaIcon.astro';
+import CSSIcon from '../assets/icons/CSSIcon.astro';
+
+const TAGS = {
+    JAVA: {
+        name: "Java",
+        class: "bg-black text-white",
+        icon: JavaIcon,
+    },
+    CSS: {
+        name: "CSS",
+        class: "bg-black text-white",
+        icon: CSSIcon,
+    },
+    JAVAFX: {
+        name: "JavaFX",
+        class: "bg-black text-white",
+        icon: JavaIcon,
+    }
+
+}
+const PROJECTS = [
+    {
+        title: "CV Generator",
+        description: "Generador de CV",
+        link: "#",
+        github: "#",
+        image: "/projects/CVGenerator.png",
+        tags: [TAGS.JAVA, TAGS.CSS, TAGS.JAVAFX],
+    }
+]
+---
+
+{
+    PROJECTS.map(({title, description, link, github, image, tags}) => (
+    <article>
+        <h3 class="text-xl font-semibold text-purple-500 mb-2">{title}</h3>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <a href={link}>Ver proyecto</a>
+        <a href={github}>GitHub</a>
+        <ul class="flex gax-x-2 flex-row">
+            {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                            </span>
+                    </li>
+            ))}
+        </ul>
+        <img class="rounded shadow-2xl shadow-white/20" src={image} alt={`Captura de pantalla de ${image}`}/>
+    </article>
+
+        /*
+         TRANSLY , CV , ALONE IN THE DARK, CALCULADORA DE PRESUPUESTO MENSUAL, MiniDBApp
+         */
+
+        ))
+    }
