@@ -11,38 +11,50 @@ import SectionContainer from "../assets/SectionContainer.astro";
 import ExperienceIcon from "../assets/icons/ExperienceIcon.astro";
 import CodeIcon from "../assets/icons/CodeIcon.astro";
 import Projects from "../components/Projects.astro";
+import AboutMe from "../components/AboutMe.astro";
+import UserIcon from "../assets/icons/UserIcon.astro";
 ---
 
 <Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
         description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
     <main class="px-4">
-        <SectionContainer class="py-44 pb-24">
-            <img class="rounded-full size-12 mb-5"
-                 src="src/assets/javvi-photo.png"
-                 alt="javvi photo"
-            />
-            <h1 class="text-white text-3xl md:text-4xl lg:text-4xl font-bold flex justific-center flex-row gap-x-4 pb-6 lg:pb-10">Hola, soy Javier
-                Fernández
-                <a href="https://linkedin.com/in/javvifernandez"
-                   target="_blank"
-                   rel="noopener"
-                   class="flex justify-center items-center mt-1 text-white">
-                    <Badge>Disponible para trabajar</Badge>
-                </a>
-            </h1>
-            <h2 class="text-xl lg:text-2xl text-wrap max-w-[1000px]">
-                <span>Desarrollador Junior</span>
-                <span class="text-purple-500">especializado en el desarrollo de Aplicaciones
-                Multiplataforma.</span>
+        <SectionContainer class="py-24 pb-24">
 
-                <span class="text-gray-200/90">Tengo 21 años de Córdoba, España.</span>
+            <!-- Contenedor para imagen + texto -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-10">
+                <div class="group w-40 h-40 lg:w-62 lg:h-62 rounded-full bg-gradient-to-tr from-purple-800 via-black to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700">
+                    <div class="w-full h-full rounded-full bg-black overflow-hidden transition-colors duration-500 ease-in-out group-hover:bg-gradient-to-tr group-hover:from-black group-hover:via-purple-500 group-hover:to-black">
+                    <img
+                                src="/public/javvi-photo.webp"
+                                alt="Foto de Javier Fernández"
+                                class="w-full h-full object-cover rounded-full transform transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+                        />
+                    </div>
+                </div>
 
-                <span class="text-white-200/90">Estoy por comenzar el ciclo de Desarrollo de Aplicaciones Web y busco
-                    mi primer trabajo como desarrollador.
-                </span>
-            </h2>
 
-            <nav class="flex gap-4 text-white mt-5 flex-wrap">
+                <!-- Texto principal -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-white text-3xl md:text-4xl lg:text-4xl font-bold flex justify-center lg:justify-start flex-row gap-x-4 pb-6 lg:pb-10">
+                        Hola, soy Javier Fernández.
+                        <a href="https://linkedin.com/in/javvifernandez"
+                           target="_blank"
+                           rel="noopener"
+                           class="flex justify-center items-center mt-2 text-white">
+                        </a>
+                    </h1>
+
+                    <h2 class="text-xl lg:text-2xl max-w-[1000px] text-wrap">
+                        <span>Desarrollador Junior </span>
+                        <span class="text-purple-500">especializado en el desarrollo de Aplicaciones Multiplataforma</span>.<br>
+                        <span class="text-white-200/90">He finalizado recientemente el ciclo de DAM y</span>
+                        <span class="text-purple-500">busco mi primer trabajo como desarrollador</span>.
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Red social y enlaces -->
+            <nav class="flex gap-4 text-white flex-wrap pt-10">
                 <SocialPill href="https://linkedin.com/in/javvifernandez">
                     <LinkedInIcon class="size-4 md:size-6 me-2"/>
                     LinkedIn
@@ -55,7 +67,7 @@ import Projects from "../components/Projects.astro";
 
                 <SocialPill href="mailto:javidez195@gmail.com">
                     <MailIcon class="size-4 md:size-5 me-2"/>
-                    Contáctame
+                    javifdez195@gmail.com
                 </SocialPill>
 
                 <SocialPill href="src/assets/Curriculum_Vitae_Javier_fernandez.pdf" download="CV_Javier_Fernandez.pdf">
@@ -65,8 +77,8 @@ import Projects from "../components/Projects.astro";
             </nav>
         </SectionContainer>
 
-        <SectionContainer id="experiencia">
-            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center">
+        <SectionContainer id="experiencia" class="py-24">
+            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center mb-10">
                 <ExperienceIcon class="size-7"/>
                 EXPERIENCIA LABORAL
             </h2>
@@ -78,7 +90,15 @@ import Projects from "../components/Projects.astro";
                 <CodeIcon class="size-7"/>
                 PROYECTOS
             </h2>
-            <Projects />
+            <Projects/>
+        </SectionContainer>
+
+        <SectionContainer id="sobre-mi">
+            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center">
+                <UserIcon class="size-7"/>
+                Sobre mí
+            </h2>
+            <AboutMe/>
         </SectionContainer>
     </main>
 </Layout>
