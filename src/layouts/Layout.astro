@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource-variable/onest";
 import "../styles/global.css";
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 ---
 
 <!doctype html>
@@ -95,6 +96,28 @@ import "../styles/global.css";
             }
         }
     }
+    .gradient-text {
+        font-size: 3rem; /* Tamaño de fuente */
+        font-weight: bold; /* Negrita */
+        background: linear-gradient(to right, #ffffff, #838383, #ad46ff, #ad46ff); /* Degradado de colores */
+        background-size: 200% 100%; /* Asegura que el degradado sea lo suficientemente grande para moverse */
+        background-clip: text; /* Aplica el degradado solo al texto */
+        color: transparent; /* Hace que el texto sea transparente para ver el fondo */
+        animation: gradient-move 25s ease-in-out infinite; /* Animación para mover el degradado */
+    }
+
+    @keyframes gradient-move {
+        0% {
+            background-position: -100% 0; /* Comienza con el degradado fuera a la izquierda */
+        }
+        50% {
+            background-position: 100% 0; /* El degradado se mueve hacia la derecha */
+        }
+        100% {
+            background-position: -100% 0; /* Vuelve al inicio */
+        }
+    }
+
 </style>
 </body>
 </html>

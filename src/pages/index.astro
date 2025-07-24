@@ -1,5 +1,5 @@
 ---
-import Badge from '../components/Badge.astro';
+import SpeedInsights  from "@vercel/speed-insights/astro"
 import Layout from '../layouts/Layout.astro';
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
 import GitHubIcon from "../assets/icons/GitHubIcon.astro";
@@ -18,11 +18,12 @@ import UserIcon from "../assets/icons/UserIcon.astro";
 <Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
         description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
     <main class="px-4">
+        <SpeedInsights />
         <SectionContainer class="py-24 pb-24">
 
             <!-- Contenedor para imagen + texto -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-10">
-                <div class="group w-40 h-40 lg:w-62 lg:h-62 rounded-full bg-gradient-to-tr from-purple-800 via-black to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700">
+                <div class="group w-40 h-40 lg:w-60 lg:h-60 rounded-full bg-gradient-to-tr from-purple-800 via-black to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700">
                     <div class="w-full h-full rounded-full bg-black overflow-hidden transition-colors duration-500 ease-in-out group-hover:bg-gradient-to-tr group-hover:from-black group-hover:via-purple-500 group-hover:to-black">
                     <img
                                 src="/public/javvi-photo.webp"
@@ -35,7 +36,7 @@ import UserIcon from "../assets/icons/UserIcon.astro";
 
                 <!-- Texto principal -->
                 <div class="text-center lg:text-left">
-                    <h1 class="text-white text-3xl md:text-4xl lg:text-4xl font-bold flex justify-center lg:justify-start flex-row gap-x-4 pb-6 lg:pb-10">
+                    <h1 class="gradient-text text-white text-3xl md:text-4xl lg:text-4xl font-bold flex justify-center lg:justify-start flex-row gap-x-4 pb-6 lg:pb-10">
                         Hola, soy Javier Fernández.
                         <a href="https://linkedin.com/in/javvifernandez"
                            target="_blank"
@@ -86,7 +87,7 @@ import UserIcon from "../assets/icons/UserIcon.astro";
         </SectionContainer>
 
         <SectionContainer id="proyectos">
-            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center">
+            <h2 class="text-3xl font-semibold mb-4 flex gap-x-3 items-center mb-10">
                 <CodeIcon class="size-7"/>
                 PROYECTOS
             </h2>
