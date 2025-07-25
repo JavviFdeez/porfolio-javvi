@@ -1,5 +1,5 @@
 ---
-import SpeedInsights  from "@vercel/speed-insights/astro"
+import SpeedInsights from "@vercel/speed-insights/astro"
 import Layout from '../layouts/Layout.astro';
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
 import GitHubIcon from "../assets/icons/GitHubIcon.astro";
@@ -18,17 +18,17 @@ import UserIcon from "../assets/icons/UserIcon.astro";
 <Layout title="Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior"
         description="Contrata a Javier Fernández para desarrollar tus aplicaciones móviles.">
     <main class="px-4">
-        <SpeedInsights />
+        <SpeedInsights/>
         <SectionContainer class="py-24 pb-24">
 
             <!-- Contenedor para imagen + texto -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-10">
                 <div class="group w-40 h-40 lg:w-60 lg:h-60 rounded-full bg-gradient-to-tr from-purple-800 via-black to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700">
                     <div class="w-full h-full rounded-full bg-black overflow-hidden transition-colors duration-500 ease-in-out group-hover:bg-gradient-to-tr group-hover:from-black group-hover:via-purple-500 group-hover:to-black">
-                    <img
-                                src="/public/javvi-photo.webp"
+                        <img
                                 alt="Foto de Javier Fernández"
                                 class="w-full h-full object-cover rounded-full transform transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+                                src="../../public/javvi-photo.webp"
                         />
                     </div>
                 </div>
