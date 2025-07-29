@@ -1,6 +1,6 @@
 # ¡Bienvenido a mi porfolio web! 
 
-## Este sitio es donde muestro mis proyectos y experiencia como desarrollador. 
+Este sitio es donde muestro mis proyectos y experiencia como desarrollador. 
 Todo está construido utilizando **Astro**.
 
 ### 🌍 Visita mi Porfolio Web
