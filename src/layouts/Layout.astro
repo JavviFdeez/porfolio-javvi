@@ -4,10 +4,13 @@ import Footer from "../components/Footer.astro";
 import "@fontsource-variable/onest";
 import "../styles/global.css";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <!doctype html>
 <html lang="es">
+<SpeedInsights/>
+<Analytics/>
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width"/>
