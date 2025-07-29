@@ -1,19 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-        "./src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte}",
-    ],
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+    darkMode: 'class',
     theme: {
-        extend: {
-            keyframes: {
-                pingOnce: {
-                    '75%, 100%': { transform: 'scale(1.5)', opacity: '0' },
-                },
-            },
-            animation: {
-                pingOnce: 'pingOnce 1s cubic-bezier(0, 0, 0.2, 1) 1',
-            },
-        },
+        extend: {},
     },
     plugins: [],
 }
