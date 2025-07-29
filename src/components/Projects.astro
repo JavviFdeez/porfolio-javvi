@@ -4,11 +4,15 @@ import CSSIcon from '../assets/icons/CSSIcon.astro';
 import Link from "../assets/icons/Link.astro";
 import LinkButton from "./LinkButton.astro"
 import GitHub from "../assets/icons/GitHubIcon.astro"
+import IonicIcon from "../assets/icons/IonicIcon.astro"
+import AngularIcon from "../assets/icons/AngularIcon.astro"
+import FirebaseIcon from "../assets/icons/FirebaseIcon.astro"
+import HtmlIcon from "../assets/icons/HtmlIcon.astro"
 
 const TAGS = {
     JAVA: {
         name: "Java",
-        class: "bg-[#3d1c00] text-white",
+        class: "bg-[#243b49] text-white",
         icon: JavaIcon,
     },
     CSS: {
@@ -18,9 +22,33 @@ const TAGS = {
     },
     JAVAFX: {
         name: "JavaFX",
-        class: "bg-[#3d1c00] text-white",
+        class: "bg-[#243b49] text-white",
         icon: JavaIcon,
-    }
+    },
+
+    IONIC: {
+        name: "IONIC",
+        class: "bg-[#176bff] text-white",
+        icon: IonicIcon,
+    },
+
+    ANGULAR: {
+        name: "Angular",
+        class: "bg-[#5b16aa] text-white",
+        icon: AngularIcon,
+    },
+
+    FIREBASE: {
+        name: "Firebase",
+        class: "bg-[#413f44] text-white",
+        icon: FirebaseIcon,
+    },
+
+    HTML: {
+        name: "HTML",
+        class: "bg-[#6d2813] text-white",
+        icon: HtmlIcon,
+    },
 
 }
 const PROJECTS = [
@@ -41,16 +69,23 @@ const PROJECTS = [
         tags: [],
     },
 
+
+    {
+        title: "Transly App",
+        description: "PWA para consultar tarifas de trenes. Búsqueda de billetes y visualización de precios.",
+        github: "https://github.com/JavviFdeez/translyapp.git",
+        image: "/projects/Transly.webp",
+        tags: [TAGS.IONIC, TAGS.ANGULAR, TAGS.FIREBASE],
+    },
+
     {
         title: "CV Generator",
-        description: "Aplicación de escritorio para crear y personalizar currículums. " +
-            "Desarrollada con Java, JavaFX y CSS, permite modificar plantillas, colores y agregar fotos. " +
-            "Exportación a PDF incluida.",
+        description: "Aplicación para crear y personalizar currículums. "
+            + "Exportación a PDF incluida.",
         github: "https://github.com/JavviFdeez/CVGenerator.git",
         image: "/projects/CVGenerator.webp",
         tags: [TAGS.JAVA, TAGS.CSS, TAGS.JAVAFX],
     },
-
 ]
 ---
 
