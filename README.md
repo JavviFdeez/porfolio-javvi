@@ -1,4 +1,4 @@
-# ¡Bienvenido a mi porfolio web! 
+# 👋🏻 ¡Bienvenido a mi porfolio web! 
 
 Este sitio es donde muestro mis proyectos y experiencia como desarrollador. 
 Todo está construido utilizando **Astro**.
