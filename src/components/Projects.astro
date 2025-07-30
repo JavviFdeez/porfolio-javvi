@@ -8,6 +8,9 @@ import IonicIcon from "../assets/icons/IonicIcon.astro"
 import AngularIcon from "../assets/icons/AngularIcon.astro"
 import FirebaseIcon from "../assets/icons/FirebaseIcon.astro"
 import HtmlIcon from "../assets/icons/HtmlIcon.astro"
+import PHPIcon from "../assets/icons/PHPIcon.astro"
+import TailwindIcon from "../assets/icons/TailwindIcon.astro"
+import JavaScriptIcon from "../assets/icons/JavaScriptIcon.astro"
 
 const TAGS = {
     JAVA: {
@@ -50,15 +53,33 @@ const TAGS = {
         icon: HtmlIcon,
     },
 
+    PHP: {
+        name: "PHP",
+        class: "bg-[#232323] text-white",
+        icon: PHPIcon,
+    },
+
+    TAILWINDCSS: {
+        name: "TailwindCSS",
+        class: "bg-[#12687a] text-white",
+        icon:TailwindIcon,
+    },
+
+    JAVASCRIPT: {
+        name: "JavaScript",
+        class: "bg-[#686868] text-white",
+        icon: JavaScriptIcon,
+    },
+
 }
 const PROJECTS = [
     {
         title: "Portal Carnes Covap",
         description: "Refactorización del frontend, añadiendo soporte multiidioma " +
-            "y mejoras en la integración de APIs para optimizar la experiencia de usuario.",
+            "y mejoras en la integración de APIs.",
         link: "https://www.carnescovap.com/",
         image: "/projects/CarnesCovap.webp",
-        tags: [],
+        tags: [TAGS.PHP, TAGS.TAILWINDCSS, TAGS.JAVASCRIPT],
     },
 
     {
@@ -66,7 +87,7 @@ const PROJECTS = [
         description: "Migración de WordPress a una nueva plataforma, con rediseño completo del frontend y soporte multiidioma.",
         link: "https://lactia.cat/es/",
         image: "/projects/Lactia.webp",
-        tags: [],
+        tags: [TAGS.PHP, TAGS.TAILWINDCSS, TAGS.JAVASCRIPT],
     },
 
 
