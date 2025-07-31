@@ -11,6 +11,7 @@ import HtmlIcon from "../assets/icons/HtmlIcon.astro"
 import PHPIcon from "../assets/icons/PHPIcon.astro"
 import TailwindIcon from "../assets/icons/TailwindIcon.astro"
 import JavaScriptIcon from "../assets/icons/JavaScriptIcon.astro"
+import SassIcon from "../assets/icons/SassIcon.astro"
 
 const TAGS = {
     JAVA: {
@@ -62,13 +63,19 @@ const TAGS = {
     TAILWINDCSS: {
         name: "TailwindCSS",
         class: "bg-[#12687a] text-white",
-        icon:TailwindIcon,
+        icon: TailwindIcon,
     },
 
     JAVASCRIPT: {
         name: "JavaScript",
-        class: "bg-[#686868] text-white",
+        class: "bg-[#2d2d33] text-white",
         icon: JavaScriptIcon,
+    },
+
+    SASS: {
+        name: "Sass",
+        class: "bg-[#753756] text-white",
+        icon: SassIcon,
     },
 
 }
@@ -79,7 +86,7 @@ const PROJECTS = [
             "y mejoras en la integración de APIs.",
         link: "https://www.carnescovap.com/",
         image: "/projects/CarnesCovap.webp",
-        tags: [TAGS.PHP, TAGS.TAILWINDCSS, TAGS.JAVASCRIPT],
+        tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
     {
@@ -87,7 +94,7 @@ const PROJECTS = [
         description: "Migración de WordPress a una nueva plataforma, con rediseño completo del frontend y soporte multiidioma.",
         link: "https://lactia.cat/es/",
         image: "/projects/Lactia.webp",
-        tags: [TAGS.PHP, TAGS.TAILWINDCSS, TAGS.JAVASCRIPT],
+        tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
 

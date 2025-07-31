@@ -1,8 +1,84 @@
-<header class="flex justify-center py-5 items-center w-full xl:w-[1120px] mx-auto">
-    <nav class="flex flex-row gap-x-6 md:gap-x-11 dark:text-white">
-        <a class="hover:scale-105 hover:text-black/60 dark:hover:text-white/60" href="/#experiencia">Experiencia</a>
-        <a class="hover:scale-105 hover:text-black/60 dark:hover:text-white/60" href="/#proyectos">Proyectos</a>
-        <a class="hover:scale-105 hover:text-black/60 dark:hover:text-white/60" href="/#sobre-mi">Sobre Mí</a>
-        <a class="hover:scale-105 hover:text-black/60 dark:hover:text-white/60" href="mailto:javidez195@gmail.com">Contacto</a>
+---
+const navItems = [
+    {title: "Experiencia", label: "experiencia", url: "/#experiencia"},
+    {title: "Proyectos", label: "proyectos", url: "/#proyectos"},
+    {title: "Sobre mí", label: "sobre-mi", url: "/#sobre-mi"},
+    {title: "Contacto", label: "contacto", url: "mailto:javidez195@gmail.com"},
+]
+---
+
+<header class="fixed top-0 flex items-center justify-center w-full mx-auto mt-4 z-50">
+    <nav class="flex px-3 font-medium rounded-full gap-x-6 md:gap-x-11 dark:text-white">
+        {
+            navItems.map((link) => (
+                    <a
+                            class="relative block transtion hover:text-purple-500"
+                            aria-current={link.label}
+                            href={link.url}
+                    >
+                        {link.title}
+                    </a>
+            ))
+        }
     </nav>
 </header>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const sections = document.querySelectorAll("section")
+        const navItems = document.querySelectorAll("header nav a")
+
+        const callback = (entries: any[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navItems.forEach((item) => {
+                        if (item.getAttribute("aria-label") == entry.target.id) {
+                            item.classList.add("text-blue-500")
+                        } else {
+                            item.classList.remove("text-blue-500")
+                        }
+                    })
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.3,
+        })
+
+        sections.forEach((section) => {
+            observer.observe(section)
+        })
+
+        // Cleanup function
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === "hidden") {
+                observer.disconnect()
+            } else {
+                sections.forEach((section) => {
+                    observer.observe(section)
+                })
+            }
+        }
+    })
+</script>
+
+<style>
+    nav {
+        animation: nav-shadow 1s linear both;
+    }
+
+
+    @keyframes nav-shadow {
+        0% {
+            background-color: rgba(255, 255, 255, 0); /* bg-white/0 */
+            box-shadow: none; /* Sin sombra al principio */
+        }
+        to {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* shadow-lg */
+            backdrop-filter: blur(10px); /* backdrop-blur */
+        }
+    }
+</style>
