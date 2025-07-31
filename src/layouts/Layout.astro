@@ -18,6 +18,14 @@ import Analytics from '@vercel/analytics/astro'
     <link rel="icon" type="image/svg+xml" href="/favicon.ico"/>
     <meta name="generator" content={Astro.generator}/>
     <title>{Astro.props.title}</title>
+    <!-- Pre-cargar el archivo CSS -->
+    <link rel="preload" href="/_astro/components.CBALwzTC.css" as="style" />
+
+    <!-- Cargar el archivo CSS de manera normal -->
+    <link rel="stylesheet" href="/_astro/components.CBALwzTC.css" />
+
+    <!-- Pre-cargar la fuente -->
+    <link rel="preload" href="/_astro/onest-lat....CUIqqgP9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </head>
 <body class="relative text-black dark:text-white">
 <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
