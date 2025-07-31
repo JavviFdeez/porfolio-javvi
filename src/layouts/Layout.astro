@@ -6,7 +6,12 @@ import "../styles/global.css";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 
-const { title, description } = Astro.props;
+interface Props {
+    title: string
+    description: string
+}
+
+const { description, title } = Astro.props
 ---
 
 <!doctype html>
@@ -17,10 +22,9 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content={description} />
-    <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.ico"/>
     <meta name="generator" content={Astro.generator}/>
-    <title>{Astro.props.title}</title>
+    <title>{title}</title>
 </head>
 <body class="relative text-black dark:text-white">
 <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
