@@ -88,6 +88,7 @@ const PROJECTS = [
             "y mejoras en la integración de APIs.",
         link: "https://www.carnescovap.com/",
         image: "/projects/CarnesCovap.webp",
+        arial_label: "Portal de Carnes Covap",
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -96,6 +97,7 @@ const PROJECTS = [
         description: "Migración de WordPress a una nueva plataforma, con rediseño completo del frontend y soporte multiidioma.",
         link: "https://lactia.cat/es/",
         image: "/projects/Lactia.webp",
+        arial_label: "Portal de Làctia",
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -105,6 +107,7 @@ const PROJECTS = [
         description: "PWA para consultar tarifas de trenes. Búsqueda de billetes y visualización de precios.",
         github: "https://github.com/JavviFdeez/translyapp.git",
         image: "/projects/Transly.webp",
+        arial_label: "Aplicación Transly",
         tags: [TAGS.IONIC, TAGS.ANGULAR, TAGS.FIREBASE],
     },
 
@@ -114,6 +117,7 @@ const PROJECTS = [
             + "Exportación a PDF incluida.",
         github: "https://github.com/JavviFdeez/CVGenerator.git",
         image: "/projects/CVGenerator.webp",
+        arial_label: "Generador de CV",
         tags: [TAGS.JAVA, TAGS.CSS, TAGS.JAVAFX],
     },
 ]
@@ -122,11 +126,11 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
     {
-        PROJECTS.map(({image, title, description, tags, link, github}) => (
+        PROJECTS.map(({image, title, description, tags, link, github, arial_label}) => (
                 <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                     <div class="w-full md:w-1/2">
                         <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out group-hover:scale-105 hover: transform shadow-xl overflow-clip rounded-xl sm:rounded-xl group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                            <a href={link || github} target="_blank" rel="noopener noreferrer">
+                            <a href={link || github} aria-label={arial_label} target="_blank" rel="noopener noreferrer">
                                 <img alt="" class="" loading="lazy" src={image}/>
                             </a>
                         </div>
@@ -151,13 +155,13 @@ const PROJECTS = [
                             <div class="text-xl mt-2 text-gray-700 dark:text-gray-400">{description}</div>
                             <footer class="flex items-end justify-start mt-4 gap-x-4">
                                 {github && (
-                                        <LinkButton href={github}>
+                                        <LinkButton href={github} aria-label={arial_label}>
                                             <GitHub class="size-6"/>
                                             Code
                                         </LinkButton>
                                 )}
                                 {link && (
-                                        <LinkButton href={link}>
+                                        <LinkButton href={link} aria-label={arial_label}>
                                             <Link class="size-4"/>
                                             Preview
                                         </LinkButton>
