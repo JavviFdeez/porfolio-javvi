@@ -12,6 +12,7 @@ import PHPIcon from "../assets/icons/PHPIcon.astro"
 import TailwindIcon from "../assets/icons/TailwindIcon.astro"
 import JavaScriptIcon from "../assets/icons/JavaScriptIcon.astro"
 import SassIcon from "../assets/icons/SassIcon.astro"
+import LinkButtonHover from "./LinkButtonHover.astro";
 
 const TAGS = {
     JAVA: {
@@ -89,6 +90,7 @@ const PROJECTS = [
         link: "https://www.carnescovap.com/",
         image: "/projects/CarnesCovap.webp",
         arial_label: "Portal de Carnes Covap",
+        new: true,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -98,6 +100,7 @@ const PROJECTS = [
         link: "https://lactia.cat/es/",
         image: "/projects/Lactia.webp",
         arial_label: "Portal de Làctia",
+        new: true,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -108,6 +111,7 @@ const PROJECTS = [
         github: "https://github.com/JavviFdeez/translyapp.git",
         image: "/projects/Transly.webp",
         arial_label: "Aplicación Transly",
+        new: false,
         tags: [TAGS.IONIC, TAGS.ANGULAR, TAGS.FIREBASE],
     },
 
@@ -118,20 +122,41 @@ const PROJECTS = [
         github: "https://github.com/JavviFdeez/CVGenerator.git",
         image: "/projects/CVGenerator.webp",
         arial_label: "Generador de CV",
+        new: false,
         tags: [TAGS.JAVA, TAGS.CSS, TAGS.JAVAFX],
     },
 ]
-
 ---
 
 <div class="flex flex-col gap-y-16">
     {
-        PROJECTS.map(({image, title, description, tags, link, github, arial_label}) => (
-                <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        PROJECTS.map(({image, title, description, tags, link, github, arial_label, new: isNew}) => (
+                <article class="flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
                     <div class="w-full md:w-1/2">
-                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out group-hover:scale-105 hover: transform shadow-xl overflow-clip rounded-xl sm:rounded-xl group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                        <div class="relative group flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl lg:border lg:border-gray-800">
                             <a href={link || github} aria-label={arial_label} target="_blank" rel="noopener noreferrer">
-                                <img alt="" class="" loading="lazy" src={image}/>
+                                <img alt="" class="hover:opacity-70" loading="lazy" src={image}/>
+                                {isNew && (
+                                        <span class="absolute top-2 right-2 bg-gradient-to-r from-black border border-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg z-10 uppercase group-hover:opacity-0">✨ Nuevo
+                                        </span>
+                                )}
+                                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            flex flex-col items-center justify-center space-y-2 text-white text-center">
+                                    {github && (
+                                            <LinkButtonHover href={github} aria-label={arial_label}>
+                                                <GitHub class="size-6"/>
+                                                Code
+                                            </LinkButtonHover>
+                                    )}
+
+                                    {link && (
+                                            <LinkButtonHover href={link} aria-label={arial_label}>
+                                                <Link class="size-4"/>
+                                                Preview
+                                            </LinkButtonHover>
+                                    )}
+                                </div>
+
                             </a>
                         </div>
                     </div>
