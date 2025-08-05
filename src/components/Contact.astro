@@ -49,7 +49,7 @@ import emailjs from "emailjs-com";
     </div>
 
     <div class="flex justify-center">
-        <div class="g-recaptcha" data-sitekey="6LfbJJsrAAAAAOAuOEsFz7WlGL4HmFkXiGU5g2_w"></div>
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
     </div>
     <div class="flex justify-center">
         <p class="mt-2text-red-500 text-sm hidden" id="error-captcha"></p>
@@ -79,6 +79,8 @@ import emailjs from "emailjs-com";
 <p class="text-l text-center mt-6">Rellena el formulario y me pondré en contacto contigo.<br> También puedes usar
     directamente mi correo: <a href="mailto:javidez195@gmail.com">javidez195@gmail.com</a></p>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LfHQpsrAAAAACQtMcKKgtNPf5rkGGk2sIL1c_co"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY"></script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
 <script>
     emailjs.init("0KNlUt0vqMH7Fytbf");

@@ -14,16 +14,6 @@ function showToast(type, message) {
         icon.textContent = "❌";
     }
 
-    if (message.length < 10) {
-        showToast("error", "✏️ El mensaje debe tener al menos 10 caracteres.");
-        return;
-    }
-
-    if (message.length > 1000) {
-        showToast("error", "🚫 El mensaje es demasiado largo. Máximo 1000 caracteres.");
-        return;
-    }
-
     text.textContent = message;
     container.classList.remove("hidden");
 
@@ -36,7 +26,7 @@ function setupContactForm() {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         const name = form.user_name.value.trim();
@@ -45,17 +35,17 @@ function setupContactForm() {
         const button = form.querySelector("button[type='submit']");
         const honeypot = form.querySelector('[name="bot-field"]');
 
-        if (honeypot && honeypot.value.trim() !== "") return;
+        const captchaField = document.getElementById("error-captcha");
 
         const fields = [
-            {id: "user_name", label: "nombre"},
-            {id: "user_email", label: "correo"},
-            {id: "message", label: "mensaje"},
+            { id: "user_name", label: "nombre" },
+            { id: "user_email", label: "correo" },
+            { id: "message", label: "mensaje" },
         ];
 
         let hasError = false;
 
-        fields.forEach(({id, label}) => {
+        fields.forEach(({ id, label }) => {
             const input = form.querySelector(`[name="${id}"]`);
             const errorMsg = document.getElementById(`error-${id}`);
 
@@ -72,41 +62,38 @@ function setupContactForm() {
             }
         });
 
-        if (hasError) return;
-
-        const recaptchaResponse = grecaptcha.getResponse();
-        const captchaError = document.getElementById("error-captcha");
-
-        if (!recaptchaResponse) {
-            captchaError.textContent = "⚠️ Por favor, completa el reCAPTCHA.";
-            captchaError.classList.remove("hidden");
-            return;
-        } else {
-            captchaError.textContent = "";
-            captchaError.classList.add("hidden");
+        // Validación avanzada del mensaje
+        if (!hasError) {
+            if (message.length < 10) {
+                showToast("error", "✏️ El mensaje debe tener al menos 10 caracteres.");
+                return;
+            }
+            if (message.length > 1000) {
+                showToast("error", "🚫 El mensaje es demasiado largo. Máximo 1000 caracteres.");
+                return;
+            }
         }
+
+        if (hasError || (honeypot && honeypot.value.trim() !== "")) return;
 
         button.disabled = true;
         button.textContent = "Enviando...";
 
-        emailjs.sendForm('service_dfy7tsb', 'template_rpb65by', form, '0KNlUt0vqMH7Fytbf')
-            .then(() => {
-                showToast("success", "Mensaje enviado correctamente.");
-                form.reset();
-            })
-            .catch(() => {
-                showToast("error", "No se pudo enviar el mensaje. Inténtalo más tarde.");
-            })
-            .finally(() => {
-                button.disabled = false;
-                button.textContent = "Enviar";
-            });
+        try {
+            // Obtener token del reCAPTCHA v3
+            const token = await grecaptcha.execute('6LfHQpsrAAAAACQtMcKKgtNPf5rkGGk2sIL1c_co', { action: 'submit' });
+            document.getElementById('g-recaptcha-response').value = token;
 
-        emailjs.send('service_dfy7tsb', 'template_78qlds8', {
-            user_name: name,
-            user_email: email,
-        });
-
+            // Enviar formulario
+            await emailjs.sendForm('service_dfy7tsb', 'template_rpb65by', form, '0KNlUt0vqMH7Fytbf');
+            showToast("success", "✅ Mensaje enviado correctamente.");
+            form.reset();
+        } catch (error) {
+            showToast("error", "❌ No se pudo enviar el mensaje. Inténtalo más tarde.");
+        } finally {
+            button.disabled = false;
+            button.textContent = "Enviar";
+        }
     });
 }
 

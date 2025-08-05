@@ -108,33 +108,3 @@ import Contact from "../components/Contact.astro";
     </main>
 </Layout>
 
-<script>
-    import emailjs from "emailjs-com";
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Cargar EmailJS
-                const emailScript = document.createElement('script');
-                emailScript.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
-                emailScript.onload = () => emailjs.init("0KNlUt0vqMH7Fytbf");
-                document.head.appendChild(emailScript);
-
-                // Cargar Contact.js
-                const contactScript = document.createElement('script');
-                contactScript.src = "/scripts/Contact.js";
-                document.body.appendChild(contactScript);
-
-                // Cargar reCAPTCHA
-                const recaptchaScript = document.createElement('script');
-                recaptchaScript.src = "https://www.google.com/recaptcha/api.js";
-                recaptchaScript.async = true;
-                recaptchaScript.defer = true;
-                document.head.appendChild(recaptchaScript);
-
-                obs.disconnect();            }
-        });
-    }, { threshold: 0.2 });
-
-    observer.observe(document.getElementById("contact-section"));
-</script>
