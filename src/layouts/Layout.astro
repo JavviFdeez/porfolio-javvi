@@ -3,29 +3,20 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource-variable/onest";
 import "../styles/global.css";
-import  SpeedInsights  from "@vercel/speed-insights/astro"
+import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
+const {
+    title = "Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior",
+    description = "Portfolio profesional de Javier Fernández, desarrollador web y móvil junior con experiencia en Angular, Firebase y más.",
+} = Astro.props;
 
-interface Props {
-    title: string
-    description: string
-}
-
-interface Props {
-    title: string;
-    description?: string;  // La propiedad description es opcional
-}
-
-const { description = "Descripción por defecto de la página", title } = Astro.props;  // Valor por defecto para la descripción
 ---
 
 <!doctype html>
 <html lang="es">
-<SpeedInsights />
-<Analytics />
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -34,6 +25,8 @@ const { description = "Descripción por defecto de la página", title } = Astro.
 <body class="relative text-black dark:text-white">
 <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 <Header/>
+<SpeedInsights />
+<Analytics />
 <slot/>
 <Footer/>
 
