@@ -7,8 +7,8 @@ const navItems = [
 ]
 ---
 
-<header class="fixed top-0 flex items-center justify-center w-full mx-auto mt-4 z-50">
-    <nav class="flex px-3 font-medium rounded-full gap-x-6 md:gap-x-11 dark:text-white">
+<header class="fixed top-0 flex items-center justify-center w-full mx-auto pt-2 z-50 bg-black/50 p-2 shadow-lg backdrop-blur-lg">
+    <nav class="flex px-12 py-1 text-s font-medium gap-x-6 md:gap-x-11 dark:text-white">
         {
             navItems.map((link) => (
                     <a
@@ -36,8 +36,7 @@ const navItems = [
         }
         to {
             border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(10px);
+
         }
     }
 </style>
