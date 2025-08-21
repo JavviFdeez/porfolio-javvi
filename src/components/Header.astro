@@ -1,4 +1,7 @@
 ---
+import GitHubIcon from "../assets/icons/GitHubIcon.astro";
+import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
+
 const navItems = [
     {title: "Experiencia", label: "experiencia", url: "/#experiencia"},
     {title: "Proyectos", label: "proyectos", url: "/#proyectos"},
@@ -7,21 +10,44 @@ const navItems = [
 ]
 ---
 
-<header class="fixed top-0 flex items-center justify-center w-full mx-auto pt-2 z-50 bg-purple-500/15 shadow-lg backdrop-blur-lg py-3">
-    <nav class="flex px-12 py-1 text-s font-medium gap-x-6 md:gap-x-11 dark:text-white">
-        {
-            navItems.map((link) => (
-                    <a
-                            class="relative block transition hover:text-purple-500"
-                            aria-label={link.label}
-                            href={link.url}
-                    >
-                        {link.title}
-                    </a>
-            ))
-        }
-    </nav>
+<header class="fixed inset-x-0 top-0 z-50 bg-black/60 backdrop-blur-lg shadow-lg">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="relative flex h-14 items-center justify-between">
+
+            <!-- Logo (izquierda) -->
+            <a href="/" class="flex items-center gap-2 shrink-0">
+                <img src="/logo_jv.svg" alt="Logo JV" class="size-15" />
+                <span class="text-white/90 font-semibold hidden sm:inline">Javier Fernández</span>
+                <span class="sr-only">Inicio</span>
+            </a>
+
+            <!-- Menú (centrado con absolute + translate-x) -->
+            <nav class="absolute left-1/2 -translate-x-1/2">
+                <ul class="flex items-center gap-6 md:gap-10 text-sm font-medium text-white/90">
+                    {
+                        navItems.map((link) => (
+                                <li>
+                                    <a
+                                            href={link.url}
+                                            aria-label={link.label}
+                                            class="relative transition hover:text-purple-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70 rounded"
+                                    >
+                                        {link.title}
+                                    </a>
+                                </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+
+            <div class="w-10"><GitHubIcon class="size-6" /></div>
+
+
+        </div>
+    </div>
 </header>
+
+
 
 <style>
     nav {
