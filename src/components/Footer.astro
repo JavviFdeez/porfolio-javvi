@@ -1,4 +1,7 @@
 ---
+import MailIcon from "../assets/icons/MailIcon.astro";
+import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
+import GitHubIcon from "../assets/icons/GitHubIcon.astro";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -9,10 +12,14 @@ const currentYear = new Date().getFullYear();
         <span class="text-sm sm:text-center text-white/90">
             © {currentYear} Javier Fernández Fernández
         </span>
-        <ul class="flex flex-wrap items-center text-sm font-medium text-white/90 px-4">
-            <li>
-                <a href="/#contacto" class="hover:underline">Contacto</a>
-            </li>
-        </ul>
+        <div class="flex fklex-row gap-4">
+            <a href="https://github.com/JavviFdeez" aria-label="Perfil de GitHub de Javier Fernández">
+                <GitHubIcon class="size-6"/>
+            </a>
+
+            <a href="https://linkedin.com/in/javvifernandez" aria-label="Perfil de LinkedIn de Javier Fernández">
+                <LinkedInIcon class="size-6"/>
+            </a>
+        </div>
     </div>
 </footer>

@@ -1,6 +1,9 @@
 ---
 import GitHubIcon from "../assets/icons/GitHubIcon.astro";
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
+import MailIcon from "../assets/icons/MailIcon.astro";
+import SocialPill from "./SocialPill.astro";
+
 
 const navItems = [
     {title: "Experiencia", label: "experiencia", url: "/#experiencia"},
@@ -15,10 +18,8 @@ const navItems = [
         <div class="relative flex h-14 items-center justify-between">
 
             <!-- Logo (izquierda) -->
-            <a href="/" class="flex items-center gap-2 shrink-0">
-                <img src="/logo_jv.svg" alt="Logo JV" class="size-15" />
-                <span class="text-white/90 font-semibold hidden sm:inline">Javier Fernández</span>
-                <span class="sr-only">Inicio</span>
+            <a href="/" class="flex items-center">
+                <img src="/logo_jv.svg" alt="Logo JV" class="size-15"/>
             </a>
 
             <!-- Menú (centrado con absolute + translate-x) -->
@@ -30,7 +31,7 @@ const navItems = [
                                     <a
                                             href={link.url}
                                             aria-label={link.label}
-                                            class="relative transition hover:text-purple-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70 rounded"
+                                            class="relative transition hover:text-purple-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70 rounded"
                                     >
                                         {link.title}
                                     </a>
@@ -40,13 +41,20 @@ const navItems = [
                 </ul>
             </nav>
 
-            <div class="w-10"><GitHubIcon class="size-6" /></div>
+            <div class="flex fklex-row gap-4">
+                <a href="https://github.com/JavviFdeez" aria-label="Perfil de GitHub de Javier Fernández">
+                    <GitHubIcon class="size-6 hover:scale-105 hover:text-purple-500"/>
+                </a>
+
+                <a href="https://linkedin.com/in/javvifernandez" aria-label="Perfil de LinkedIn de Javier Fernández">
+                    <LinkedInIcon class="size-6"/>
+                </a>
+            </div>
 
 
         </div>
     </div>
 </header>
-
 
 
 <style>
