@@ -23,7 +23,7 @@ const navItems = [
             </a>
 
             <!-- Menú (centrado con absolute + translate-x) -->
-            <nav class="absolute left-1/2 -translate-x-1/2">
+            <nav class="absolute left-1/2 -translate-x-1/2 hidden md:block">
                 <ul class="flex items-center gap-6 md:gap-10 text-sm font-medium text-white/90">
                     {
                         navItems.map((link) => (
@@ -41,13 +41,29 @@ const navItems = [
                 </ul>
             </nav>
 
-            <div class="flex fklex-row gap-4">
+            <button
+                    id="menu-toggle"
+                    class="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70"
+                    aria-label="Abrir menú"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                    type="button"
+            >
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor">
+                    <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
+                    <path stroke-width="2" d="M6 6l12 12M18 6L6 18"/>
+                </svg>
+            </button>
+
+            <div class="hidden md:flex fklex-row gap-4">
                 <a href="https://github.com/JavviFdeez" aria-label="Perfil de GitHub de Javier Fernández">
                     <GitHubIcon class="size-6 hover:scale-105 hover:text-purple-500"/>
                 </a>
 
                 <a href="https://linkedin.com/in/javvifernandez" aria-label="Perfil de LinkedIn de Javier Fernández">
-                    <LinkedInIcon class="size-6"/>
+                    <LinkedInIcon class="size-6 hover:scale-105 hover:text-purple-500"/>
                 </a>
             </div>
 
@@ -55,6 +71,21 @@ const navItems = [
         </div>
     </div>
 </header>
+
+<div id="mobile-menu" class="md:hidden fixed inset-x-0 top-14 hidden z-20">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <nav class="relative mx-3 rounded-xl border border-white/10 bg-[#1c1d23]/95 p-4">
+        <ul class="flex flex-col divide-y divide-white/10 text-white/90">
+            {navItems.map((link) => (
+                    <li>
+                        <a href={link.url} aria-label={link.label} class="block py-3 px-2 rounded hover:bg-white/5 hover:text-purple-500" data-close-menu>
+                            {link.title}
+                        </a>
+                    </li>
+            ))}
+        </ul>
+    </nav>
+</div>
 
 
 <style>
@@ -74,3 +105,32 @@ const navItems = [
         }
     }
 </style>
+
+<script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const icoOpen = document.getElementById('icon-open');
+    const icoClose = document.getElementById('icon-close');
+
+    function setState(open) {
+        menu.classList.toggle('hidden', !open);
+        btn?.setAttribute('aria-expanded', String(open));
+        btn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        icoOpen?.classList.toggle('hidden', open);
+        icoClose?.classList.toggle('hidden', !open);
+        document.documentElement.classList.toggle('overflow-hidden', open); // bloquea scroll al abrir
+    }
+
+    btn?.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') !== 'true';
+        setState(open);
+    });
+
+    menu?.addEventListener('click', (e) => {
+        if (e.target.closest('[data-close-menu]')) setState(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setState(false);
+    });
+</script>
