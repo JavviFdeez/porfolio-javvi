@@ -1,9 +1,14 @@
+---
+const { download, newTab = false } = Astro.props;
+---
 <a
     {...Astro.props}
     class="w-full md:w-auto rounded-full text-black dark:text-white border border-purple-500 dark:border-purple-500/50 flex justify-center items-center gap-x-2 py-2 px-4 md:py-2 md:px-6 text-base bg-gray-200 dark:bg-white/15 hover:scale-105 hover:text-white hover:border-purple-500/50 hover:bg-gradient-to-tr hover:from-black hover:via-black hover:to-black transition duration-300"
-    target="_blank"
+    target={newTab ? "_blank" : "_self"}
     role="link"
+    download={download}
     href="{Astro.props.href}"
+    rel={newTab ? "noopener noreferrer" : undefined}
     aria-label="{Astro.props.ariaLabel}"
 >
     <slot/>
