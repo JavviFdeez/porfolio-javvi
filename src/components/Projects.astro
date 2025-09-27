@@ -13,41 +13,48 @@ import TailwindIcon from "../assets/icons/TailwindIcon.astro"
 import JavaScriptIcon from "../assets/icons/JavaScriptIcon.astro"
 import SassIcon from "../assets/icons/SassIcon.astro"
 import LinkButtonHover from "./LinkButtonHover.astro";
+import AstroIcon from "../assets/icons/AstroIcon.astro"
 
 const TAGS = {
     JAVA: {
         name: "Java",
-        class: "bg-[#243b49] text-white border border-white/50",
+        class: "bg-[#1f333d] text-white border border-[#e66f00]/50",
         icon: JavaIcon,
+    },
+
+    ASTRO: {
+        name: "Astro",
+        class: "bg-[#17191e] text-white border border-[#e63baf]/50",
+        icon: AstroIcon,
     },
 
     CSS: {
         name: "CSS",
-        class: "bg-[#1572b7] text-white border border-white/50",
+        class: "bg-[#08101c]/50 text-white border border-[#2aa9e2]/50",
         icon: CSSIcon,
     },
 
     JAVAFX: {
         name: "JavaFX",
-        class: "bg-[#243b49] text-white border border-white/50",
+        class: "bg-[#1f333d] text-white border border-[#e66f00]/50",
         icon: JavaIcon,
     },
 
     IONIC: {
         name: "IONIC",
-        class: "bg-[#176bff] text-white border border-white/80",
+        class: "bg-[#252527] text-white border border-[#176bff]/50",
         icon: IonicIcon,
     },
 
     ANGULAR: {
         name: "Angular",
-        class: "bg-[#5b16aa] text-white border border-gray-500/80",
+        class: "bg-[#1f013d] text-white border border-[#fe31cf]/50",
         icon: AngularIcon,
     },
 
     FIREBASE: {
         name: "Firebase",
-        class: "bg-[#6b1401] text-white border border-orange-500/80",
+        class: "bg-[#252527] text-white border border-orange-500/80",
         icon: FirebaseIcon,
     },
 
@@ -59,30 +66,39 @@ const TAGS = {
 
     PHP: {
         name: "PHP",
-        class: "bg-[#535972] text-white border border-gray-800/80",
+        class: "bg-[#17191e] text-white border border-[#535972]",
         icon: PHPIcon,
     },
 
     TAILWINDCSS: {
         name: "TailwindCSS",
-        class: "bg-[#12687a] text-white border border-white/80",
+        class: "bg-[#010101] text-white border border-[#1baabc]/50",
         icon: TailwindIcon,
     },
 
     JAVASCRIPT: {
         name: "JavaScript",
-        class: "bg-[#685f22] text-white border border-gray-800",
+        class: "bg-[#323330] text-white border border-[#f0db4f]/50",
         icon: JavaScriptIcon,
     },
 
     SASS: {
         name: "Sass",
-        class: "bg-[#703452] text-white border border-white/50",
+        class: "bg-[#422030] text-white border border-white/50",
         icon: SassIcon,
     },
 
 }
 const PROJECTS = [
+    {
+        title: "Memorial Isidro Pulido",
+        description: "Diseño y desarrollo de la página web oficial del Memorial Isidro Pulido.",
+        link: "https://www.memorialisidropulido.es/",
+        image: "/projects/memorial.webp",
+        arial_label: "Web Oficial Memorial Isidro Pulido",
+        new: true,
+        tags: [TAGS.ASTRO, TAGS.TAILWINDCSS, TAGS.JAVASCRIPT],
+    },
     {
         title: "Portal Carnes Covap",
         description: "Refactorización del front-end, añadiendo soporte multidioma " +
@@ -90,7 +106,7 @@ const PROJECTS = [
         link: "https://www.carnescovap.com/",
         image: "/projects/CarnesCovap.webp",
         arial_label: "Portal de Carnes Covap",
-        new: true,
+        new: false,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -100,7 +116,7 @@ const PROJECTS = [
         link: "https://lactia.cat/es/",
         image: "/projects/Lactia.webp",
         arial_label: "Portal de Làctia",
-        new: true,
+        new: false,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
 
@@ -169,8 +185,8 @@ const PROJECTS = [
                             <ul class="flex flex-row mb-2 gap-x-2">
                                 {tags.map((tag) => (
                                         <li>
-                                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                                        <tag.icon class="size-4"/>
+                                    <span class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-3`}>
+                                        <tag.icon class="size-5"/>
                                         {tag.name}
                                     </span>
                                         </li>
