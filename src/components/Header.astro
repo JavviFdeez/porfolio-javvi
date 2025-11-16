@@ -16,12 +16,10 @@ const navItems = [
     <div class="mx-auto max-w-6xl px-4">
         <div class="relative flex h-14 items-center justify-between">
 
-            <!-- Logo (izquierda) -->
             <a href="/" class="flex items-center">
                 <img src="/logo_jv.svg" alt="Logo JV" class="size-15"/>
             </a>
 
-            <!-- Menú (centrado con absolute + translate-x) -->
             <nav class="absolute left-1/2 -translate-x-1/2 hidden md:block">
                 <ul class="flex items-center gap-6 md:gap-10 text-s font-medium text-white/90">
                     {
@@ -57,11 +55,11 @@ const navItems = [
             </button>
 
             <div class="hidden md:flex fklex-row gap-4 text-white dark:text-purple-800">
-                <a href="https://github.com/JavviFdeez" aria-label="Perfil de GitHub de Javier Fernández">
+                <a href="https://github.com/JavviFdeez" target="_blank" aria-label="Perfil de GitHub de Javier Fernández">
                     <GitHubIcon class="size-6 hover:scale-105 hover:text-purple-500"/>
                 </a>
 
-                <a href="https://linkedin.com/in/javvifernandez" aria-label="Perfil de LinkedIn de Javier Fernández">
+                <a href="https://linkedin.com/in/javvifernandez" target="_blank" aria-label="Perfil de LinkedIn de Javier Fernández">
                     <LinkedInIcon class="size-6 hover:scale-105 hover:text-purple-500"/>
                 </a>
             </div>
