@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vercel": "^9.0.2",
     "@fontsource-variable/onest": "^5.2.9",
     "@fontsource-variable/roboto": "^5.2.6",
     "@fontsource/onest": "^5.2.9",
