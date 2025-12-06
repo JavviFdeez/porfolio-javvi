@@ -1,28 +1,35 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-const Experience = [
+
+const EXPERIENCE = [
     {
-        date: "Junio 2025.",
-        title: "Prácticas CFGS - Desarrollo de Aplicaciones Multiplataforma.",
-        description: "COVAP - Dpto. Desarrollo Digital.",
-        localizazion: "Pozoblanco, Córdoba.",
+        date: "Junio 2025 - Actualidad",
+        title: "Prácticas CFGS - Desarrollo de Aplicaciones Multiplataforma",
+        company: "COVAP - Dpto. Desarrollo Digital",
+        location: "Pozoblanco, Córdoba",
+        description: "Desarrollo y mantenimiento de software, refactorización de código legacy y migración de portales corporativos a tecnologías modernas.",
         link: "#"
     },
     {
-        date: "Junio 2022.",
-        title: "Prácticas CFGM - Sistemas Microinformáticos y Redes.",
-        description: "INCOPE.",
-        localizazion: "Pozoblanco, Córdoba.",
+        date: "Junio 2022",
+        title: "Prácticas CFGM - Sistemas Microinformáticos y Redes",
+        company: "INCOPE",
+        location: "Pozoblanco, Córdoba",
+        description: "Soporte técnico, mantenimiento de hardware y gestión de redes locales.",
         link: "#"
     }
 ]
 ---
-<ol class="relative border-s border-gray-700 ml-3">
-    {Experience.map((experience) => (
-            <li class="mb-10 ms-4">
-                <ExperienceItem {...experience}/>
-            </li>
-    ))
-    }
-</ol>
 
+<ol class="relative border-l border-white/10 ml-3">
+    {EXPERIENCE.map((experience) => (
+            <li class="mb-10 ml-8 relative group">
+
+            <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] top-0 ring-4 ring-[#121212] bg-[#1a1a1a] border border-white/10 group-hover:border-purple-500 transition-colors duration-300">
+                <span class="w-2 h-2 rounded-full bg-gray-500 group-hover:bg-purple-400 group-hover:shadow-[0_0_10px_#a855f7] transition-all duration-300"></span>
+            </span>
+
+                <ExperienceItem {...experience} />
+            </li>
+    ))}
+</ol>

@@ -2,28 +2,30 @@
 import MailIcon from "../assets/icons/MailIcon.astro";
 import LinkButton from "./LinkButton.astro";
 ---
-<div class="relative bg-[#211e2b]/80 rounded-2xl shadow-lg shadow-purple-500/20 p-8 border border-purple-500/30 group overflow-hidden">
-    <div class="flex flex-col md:flex-row items-start gap-6 p-1">
-        <div class="[&>p>strong]:text-purple-500">
-            <h3 class="flex gap-x-2 text-2xl font-bold mb-3 text-white">Creación de Páginas Web</h3>
-            <p class="text-lg text-gray-300 mb-6">
-                Desarrollo páginas web <strong>modernas</strong>, <strong>rápidas</strong> y adaptadas a tus
-                necesidades.
-                Desde portfolios personales hasta webs para empresas, con un <strong>diseño visual</strong> y <strong>profesional</strong>.
+
+<div class="relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-purple-500/20 hover:from-purple-500/50 hover:to-purple-900/50 transition-all duration-500 shadow-lg hover:shadow-purple-500/20">
+
+    <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 bg-[#121212] rounded-2xl p-8 h-full overflow-hidden backdrop-blur-xl">
+
+        <!-- Efecto de luz ambiental en el fondo -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-colors duration-500"></div>
+
+        <div class="relative flex-1 z-10">
+            <h3 class="text-3xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors duration-300">
+                Creación de Páginas Web
+            </h3>
+            <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
+                Desarrollo páginas web <strong class="text-purple-400 font-medium">modernas</strong>, <strong class="text-purple-400 font-medium">rápidas</strong> y adaptadas a tus necesidades.
+                Desde portfolios personales hasta webs corporativas, con un enfoque en el <strong class="text-gray-200">diseño visual</strong> y el <strong class="text-gray-200">rendimiento</strong>.
             </p>
-            <div class="block lg:hidden">
-                <LinkButton href=mailto:javidez195@gmail.com
-                            class=" items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 transition px-6 py-3 rounded-lg text-white font-medium shadow-md shadow-purple-500/30">
-                    <MailIcon class="size-6"/>
-                    ¡Hablemos de tu proyecto!
-                </LinkButton>
-            </div>
-            <div class="hidden lg:flex absolute inset-0 items-center justify-center bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-500">
-                <LinkButton href=mailto:javidez195@gmail.com>
-                    <MailIcon class="size-6"/>
-                    ¡Hablemos de tu proyecto!
-                </LinkButton>
-            </div>
         </div>
+
+        <div class="relative z-10 w-full md:w-auto shrink-0">
+            <LinkButton href="mailto:javidez195@gmail.com" class="w-full md:w-auto flex items-center justify-center gap-3 bg-white/5 hover:bg-purple-600/20 border border-white/10 hover:border-purple-500/50 text-white px-8 py-4 rounded-xl transition-all duration-300 backdrop-blur-sm group/btn hover:scale-105">
+                <MailIcon class="size-6 text-purple-400 group-hover/btn:text-white transition-colors" />
+                <span class="font-medium group-hover/btn:tracking-wide transition-all">¡Hablemos de tu proyecto!</span>
+            </LinkButton>
+        </div>
+
     </div>
 </div>
