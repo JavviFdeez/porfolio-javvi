@@ -5,19 +5,32 @@ import MailIcon from "../assets/icons/MailIcon.astro";
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
 import CVIcon from "../assets/CVIcon.astro";
 ---
-<div class="flex flex-col lg:flex-row-reverse items-center gap-5 md:gap-10">
-    <div class="group w-40 h-40 lg:w-60 lg:h-60 rounded-full bg-gradient-to-tr from-purple-500 via-[#211e2b] to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700">
-        <div class="w-full h-full rounded-full bg-white dark:bg-[#211e2b] overflow-hidden transition-colors duration-500 ease-in-out group-hover:bg-gradient-to-tr group-hover:from-black group-hover:via-purple-500 group-hover:to-black">
-            <img
-                    alt="Foto de Javier Fernández"
-                    class="w-full h-50 md:h-full object-cover transform transition duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    fetchpriority="high"
-                    loading="eager"
-                    src="/javvi-photo.webp"
-            />
-        </div>
-    </div>
 
+<div class="flex flex-col lg:flex-row-reverse items-center gap-5 md:gap-10 py-10 animate-fade-in-up">
+
+    <!-- Imagen (Con Badge) -->
+    <div class="relative group">
+        <div class="w-40 h-40 lg:w-60 lg:h-60 rounded-full bg-gradient-to-tr from-purple-500 via-[#211e2b] to-purple-500 p-[2px] transition duration-500 hover:from-purple-500 hover:to-black-700 shadow-2xl">
+            <div class="w-full h-full rounded-full bg-white dark:bg-[#211e2b] overflow-hidden transition-colors duration-500 ease-in-out group-hover:bg-gradient-to-tr group-hover:from-black group-hover:via-purple-500 group-hover:to-black">
+                <img
+                        alt="Foto de Javier Fernández"
+                        class="w-full h-50 md:h-full object-cover transform transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+                        fetchpriority="high"
+                        loading="eager"
+                        src="/javvi-photo.webp"
+                />
+            </div>
+        </div>
+
+        <!-- Badge "Disponible" -->
+        <a href="https://linkedin.com/in/javvifernandez" target="_blank" rel="noopener noreferrer" class="absolute bottom-0 right-0 lg:bottom-4 lg:right-0 bg-[#1a1a1a] border border-green-500/30 text-green-400 text-xs font-medium px-2 py-1 lg:px-3 lg:py-1 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-900/20 transition-colors z-20">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Disponible
+        </a>
+    </div>
 
     <!-- Texto principal -->
     <div class="text-center lg:text-left">
@@ -25,19 +38,18 @@ import CVIcon from "../assets/CVIcon.astro";
             Hola, soy Javier Fernández.
         </h1>
 
-        <h2 class="text-2xl max-w-[1000px] text-wrap text-black dark:text-white">
+        <h2 class="text-2xl max-w-[1000px] text-wrap text-black dark:text-white leading-relaxed">
             <span>Desarrollador Junior </span>
-            <span class="text-purple-500">especializado en Aplicaciones Multiplataforma</span>.<br>
-            <span class="block sm:hidden h-3"></span> <!-- pequeño respiro solo en móvil -->
-            <span class="text-white-200/90">He finalizado recientemente el ciclo de DAM y</span>
-            <span class="text-purple-500">busco mi primer trabajo como desarrollador</span>.
+            <span class="text-purple-500 font-semibold">especializado en Aplicaciones Multiplataforma</span>.<br>
+            <span class="block sm:hidden h-3"></span>
+            <span class="text-gray-300">He finalizado recientemente el ciclo de DAM y</span>
+            <span class="text-purple-500 font-semibold">busco mi primer trabajo como desarrollador</span>.
         </h2>
     </div>
 </div>
 
-<!-- Red social y enlaces -->
-<nav class="flex flex-wrap gap-3 md:gap-4 text-white md:justify-center lg:justify-start pt-10">
-    <SocialPill href="https://linkedin.com/in/javvifernandez" aria-label="Perfil de LinkedIn de Javier Fernández" newTab>
+<nav class="flex flex-wrap gap-3 md:gap-4 text-white justify-center lg:justify-start pt-10">
+    <SocialPill href="https://linkedin.com/in/javvifernandez" aria-label="LinkedIn" newTab>
         <LinkedInIcon class="size-4 md:size-6 me-2"/>
         LinkedIn
     </SocialPill>
@@ -49,7 +61,7 @@ import CVIcon from "../assets/CVIcon.astro";
 
     <SocialPill href="mailto:javidez195@gmail.com">
         <MailIcon class="size-4 md:size-5 me-2"/>
-        javifdez195@gmail.com
+        Contáctame
     </SocialPill>
 
     <SocialPill href="/CurrIculum_Vitae_Javier_Fernandez.pdf" download="CV_Javier_Fernandez.pdf">
@@ -57,3 +69,20 @@ import CVIcon from "../assets/CVIcon.astro";
         Descargar CV
     </SocialPill>
 </nav>
+
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+</style>
