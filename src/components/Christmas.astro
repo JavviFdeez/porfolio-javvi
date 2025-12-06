@@ -1,0 +1,61 @@
+---
+/* No props needed */
+---
+
+<div id="christmas-overlay" class="pointer-events-none fixed inset-0 z-50 overflow-hidden" aria-hidden="true">
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+</div>
+
+<style>
+    /* Nieve Sutil con CSS */
+    .snow {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+                radial-gradient(3px 3px at 20% 30%, rgba(255, 255, 255, 0.4) 50%, transparent),
+                radial-gradient(3px 3px at 40% 70%, rgba(255, 255, 255, 0.4) 50%, transparent),
+                radial-gradient(3px 3px at 60% 40%, rgba(255, 255, 255, 0.4) 50%, transparent),
+                radial-gradient(3px 3px at 80% 68%, rgba(255, 255, 255, 0.4) 50%, transparent);
+        background-size: 400px 400px;
+        animation: snow 10s linear infinite;
+        opacity: 0.6;
+    }
+
+    .snow:nth-child(2) {
+        background-image:
+                radial-gradient(4px 4px at 10% 20%, rgba(255, 255, 255, 0.3) 50%, transparent),
+                radial-gradient(4px 4px at 90% 80%, rgba(255, 255, 255, 0.3) 50%, transparent);
+        background-size: 300px 300px;
+        animation-duration: 15s;
+        animation-direction: reverse;
+    }
+
+    @keyframes snow {
+        0% { transform: translateY(0) translateX(0); }
+        100% { transform: translateY(400px) translateX(20px); }
+    }
+
+    /* Gorro de Santa en la foto de perfil (Ajusta los selectores según tu HTML) */
+    :global(.hero-image-container) {
+        position: relative;
+    }
+
+    :global(.hero-image-container)::after {
+        content: '🎅'; /* O usa una imagen SVG de un gorro */
+        font-size: 80px;
+        position: absolute;
+        top: -40px;
+        left: -20px;
+        transform: rotate(-15deg);
+        z-index: 20;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: rotate(-15deg) translateY(0); }
+        50% { transform: rotate(-10deg) translateY(-5px); }
+    }
+</style>

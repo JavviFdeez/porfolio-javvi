@@ -5,24 +5,28 @@ import "@fontsource-variable/onest";
 import "../styles/global.css";
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
+import Christmas from "../components/Christmas.astro"; // Importamos el componente de Navidad
+
 const {
     title = "Porfolio de Javier Fernández Fernández - Desarrollador y Programador Junior",
     description = "Portfolio profesional de Javier Fernández, desarrollador web y móvil junior con experiencia en Angular, Firebase y más.",
 } = Astro.props;
 
+const today = new Date();
+const isChristmas = today.getMonth() === 11; // 11 es Diciembre (0-11)
 ---
 
+<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/logo_jv.svg" class="size-52" />
+    <link rel="apple-touch-icon" href="/logo_jv.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <link rel="icon" type="image/svg+xml" href="/logo_jv.svg" class="size-52" />
-    <link rel="apple-touch-icon" href="/logo_jv.svg" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://javvi.dev/" />
@@ -30,6 +34,7 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://javvi.dev/og-image.jpg" />
 
+    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://javvi.dev/" />
     <meta property="twitter:title" content={title} />
@@ -37,14 +42,15 @@ const {
     <meta property="twitter:image" content="https://javvi.dev/og-image.jpg" />
 </head>
 <body class="relative text-black dark:text-white">
+<!-- Renderizado condicional del componente de Navidad -->
+{isChristmas && <Christmas />}
+
 <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-[linear-gradient(to_bottom,rgba(156,65,255,0.2)_0%,#1c1d23_5%,rgba(156,65,255,0.2)_100%)]"></div>
 <Header/>
 <SpeedInsights />
 <Analytics />
 <slot/>
 <Footer/>
-
-
 
 <style is:global>
     :root {
@@ -120,12 +126,21 @@ const {
             }
         }
     }
+    .gradient-text {
+        font-weight: bold; /* Negrita */
+        background: linear-gradient(to right, #ffffff, #838383, #ad46ff, #ad46ff); /* Degradado de colores */
+        background-size: 200% 100%; /* Asegura que el degradado sea lo suficientemente grande para moverse */
+        background-clip: text; /* Aplica el degradado solo al texto */
+        color: transparent; /* Hace que el texto sea transparente para ver el fondo */
+        animation: gradient-move 25s ease-in-out infinite; /* Animación para mover el degradado */
+    }
 
     @media (prefers-reduced-motion: no-preference) {
         .gradient-text {
             animation: gradient-move 25s ease-in-out infinite;
         }
     }
+
     @keyframes gradient-move {
         0% {
             background-position: -100% 0;
