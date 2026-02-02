@@ -1,0 +1,42 @@
+---
+/**
+    * SmartPicture.astro
+    * Componente inteligente para optimización automática de imágenes.
+    * Soporta Art Direction y cambio de formato (AVIF > WebP > PNG).
+    */
+interface Props {
+    src: string;
+    alt: string;
+    className?: string;
+    loading?: "eager" | "lazy";
+    fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+    src,
+    alt,
+    className = "",
+    loading = "lazy",
+    fetchpriority = "auto"
+} = Astro.props;
+
+// Seguridad: Si por error pasas la extensión, la quitamos para evitar fallos (ej: "foto.png" -> "foto")
+const cleanSrc = src.replace(/\.(webp|png|jpg|jpeg|avif)$/, '');
+---
+
+<picture>
+    <source srcset={`${cleanSrc}.avif`} type="image/avif" />
+
+    <source srcset={`${cleanSrc}.webp`} type="image/webp" />
+
+    <img
+            src={`${cleanSrc}.png`}
+            alt={alt}
+            class={className}
+            loading={loading}
+            fetchpriority={fetchpriority}
+            decoding={loading === "lazy" ? "async" : "sync"}
+            width="100%"
+            height="auto"
+    />
+</picture>

@@ -1,9 +1,13 @@
 ---
+import SmartPicture from "./ui/SmartPicture.astro"; // Ajusta la ruta según donde guardaste el archivo anterior
+import LinkButton from "./LinkButton.astro"
+import LinkButtonHover from "./LinkButtonHover.astro";
+import GitHub from "../assets/icons/GitHubIcon.astro"
+import Link from "../assets/icons/Link.astro"
+
+// Iconos de tecnologías
 import JavaIcon from '../assets/icons/JavaIcon.astro';
 import CSSIcon from '../assets/icons/CSSIcon.astro';
-import Link from "../assets/icons/Link.astro";
-import LinkButton from "./LinkButton.astro"
-import GitHub from "../assets/icons/GitHubIcon.astro"
 import IonicIcon from "../assets/icons/IonicIcon.astro"
 import AngularIcon from "../assets/icons/AngularIcon.astro"
 import FirebaseIcon from "../assets/icons/FirebaseIcon.astro"
@@ -12,90 +16,30 @@ import PHPIcon from "../assets/icons/PHPIcon.astro"
 import TailwindIcon from "../assets/icons/TailwindIcon.astro"
 import JavaScriptIcon from "../assets/icons/JavaScriptIcon.astro"
 import SassIcon from "../assets/icons/SassIcon.astro"
-import LinkButtonHover from "./LinkButtonHover.astro";
 import AstroIcon from "../assets/icons/AstroIcon.astro"
 
 const TAGS = {
-    JAVA: {
-        name: "Java",
-        class: "bg-[#1f333d] text-white border border-[#e66f00]/50",
-        icon: JavaIcon,
-    },
-
-    ASTRO: {
-        name: "Astro",
-        class: "bg-[#17191e] text-white border border-[#e63baf]/50",
-        icon: AstroIcon,
-    },
-
-    CSS: {
-        name: "CSS",
-        class: "bg-[#08101c]/50 text-white border border-[#2aa9e2]/50",
-        icon: CSSIcon,
-    },
-
-    JAVAFX: {
-        name: "JavaFX",
-        class: "bg-[#1f333d] text-white border border-[#e66f00]/50",
-        icon: JavaIcon,
-    },
-
-    IONIC: {
-        name: "IONIC",
-        class: "bg-[#13243f] text-white border border-[#176bff]/50",
-        icon: IonicIcon,
-    },
-
-    ANGULAR: {
-        name: "Angular",
-        class: "bg-[#1f013d] text-white border border-[#fe31cf]/50",
-        icon: AngularIcon,
-    },
-
-    FIREBASE: {
-        name: "Firebase",
-        class: "bg-[#252527] text-white border border-orange-500/80",
-        icon: FirebaseIcon,
-    },
-
-    HTML: {
-        name: "HTML",
-        class: "bg-[#6d2813] text-white",
-        icon: HtmlIcon,
-    },
-
-    PHP: {
-        name: "PHP",
-        class: "bg-[#17191e] text-white border border-[#535972]",
-        icon: PHPIcon,
-    },
-
-    TAILWINDCSS: {
-        name: "TailwindCSS",
-        class: "bg-[#010101] text-white border border-[#1baabc]/50",
-        icon: TailwindIcon,
-    },
-
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-[#1b1c1a] text-white border border-[#f0db4f]/50",
-        icon: JavaScriptIcon,
-    },
-
-    SASS: {
-        name: "Sass",
-        class: "bg-[#422030] text-white border border-white/50",
-        icon: SassIcon,
-    },
-
+    JAVA: { name: "Java", class: "bg-[#1f333d] text-white border border-[#e66f00]/50", icon: JavaIcon },
+    ASTRO: { name: "Astro", class: "bg-[#17191e] text-white border border-[#e63baf]/50", icon: AstroIcon },
+    CSS: { name: "CSS", class: "bg-[#08101c]/50 text-white border border-[#2aa9e2]/50", icon: CSSIcon },
+    JAVAFX: { name: "JavaFX", class: "bg-[#1f333d] text-white border border-[#e66f00]/50", icon: JavaIcon },
+    IONIC: { name: "IONIC", class: "bg-[#13243f] text-white border border-[#176bff]/50", icon: IonicIcon },
+    ANGULAR: { name: "Angular", class: "bg-[#1f013d] text-white border border-[#fe31cf]/50", icon: AngularIcon },
+    FIREBASE: { name: "Firebase", class: "bg-[#252527] text-white border border-orange-500/80", icon: FirebaseIcon },
+    HTML: { name: "HTML", class: "bg-[#6d2813] text-white", icon: HtmlIcon },
+    PHP: { name: "PHP", class: "bg-[#17191e] text-white border border-[#535972]", icon: PHPIcon },
+    TAILWINDCSS: { name: "TailwindCSS", class: "bg-[#010101] text-white border border-[#1baabc]/50", icon: TailwindIcon },
+    JAVASCRIPT: { name: "JavaScript", class: "bg-[#1b1c1a] text-white border border-[#f0db4f]/50", icon: JavaScriptIcon },
+    SASS: { name: "Sass", class: "bg-[#422030] text-white border border-white/50", icon: SassIcon },
 }
 
+// NOTA: Las rutas 'image' van SIN extensión
 const PROJECTS = [
     {
         title: "Memorial Isidro Pulido",
         description: "Diseño y desarrollo de la página web oficial del Memorial Isidro Pulido.",
         link: "https://www.memorialisidropulido.es/",
-        image: "/projects/memorial.webp",
+        image: "/projects/memorial",
         arial_label: "Web Oficial Memorial Isidro Pulido",
         new: true,
         version: "v2.0",
@@ -103,45 +47,21 @@ const PROJECTS = [
     },
     {
         title: "Portal Carnes Covap",
-        description: "Refactorización del front-end, añadiendo soporte multidioma " +
-            "y mejoras en la integración de APIs.",
+        description: "Refactorización del front-end, añadiendo soporte multidioma y mejoras en la integración de APIs.",
         link: "https://www.carnescovap.com/",
-        image: "/projects/CarnesCovap.webp",
+        image: "/projects/CarnesCovap",
         arial_label: "Portal de Carnes Covap",
         new: false,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
     },
-
     {
         title: "Portal Làctia",
-        description: "Migración de WordPress a un nuevo frameworks, con rediseño completo del front-end y soporte multiidioma.",
+        description: "Migración de WordPress a un nuevo framework, con rediseño completo del front-end y soporte multiidioma.",
         link: "https://lactia.cat/es/",
-        image: "/projects/Lactia.webp",
+        image: "/projects/Lactia",
         arial_label: "Portal de Làctia",
         new: false,
         tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT],
-    },
-
-
-    {
-        title: "Transly App",
-        description: "PWA para consultar tarifas de trenes. Búsqueda de billetes y visualización de precios.",
-        github: "https://github.com/JavviFdeez/translyapp.git",
-        image: "/projects/Transly.webp",
-        arial_label: "Aplicación Transly",
-        new: false,
-        tags: [TAGS.IONIC, TAGS.ANGULAR, TAGS.FIREBASE],
-    },
-
-    {
-        title: "CV Generator",
-        description: "Aplicación para crear y personalizar currículums. "
-            + "Exportación a PDF incluida.",
-        github: "https://github.com/JavviFdeez/CVGenerator.git",
-        image: "/projects/CVGenerator.webp",
-        arial_label: "Generador de CV",
-        new: false,
-        tags: [TAGS.JAVA, TAGS.CSS, TAGS.JAVAFX],
     },
 ]
 ---
@@ -149,40 +69,47 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
     {
         PROJECTS.map(({image, title, description, tags, link, github, arial_label, new: isNew, version}) => (
-                <article class="flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+                <article class="flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0" role="article">
                     <div class="w-full md:w-1/2">
                         <div class="relative group flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl lg:border lg:border-gray-800">
-                            <a href={link || github} aria-label={arial_label} target="_blank" rel="noopener noreferrer">
-                                <img alt="" class="hover:opacity-70" loading="lazy" src={image}/>
 
-                                {/* Etiqueta Nuevo Estilizada */}
+                            <a href={link || github} aria-label={arial_label} target="_blank" rel="noopener noreferrer" class="w-full block overflow-hidden relative">
+
+                                <SmartPicture
+                                        src={image}
+                                        alt={`Captura del proyecto ${title}`}
+                                        className="w-full h-auto object-cover transition duration-500 hover:scale-105 hover:opacity-70"
+                                        loading="lazy"
+                                />
+
+                                {/* Badge "Nuevo" */}
                                 {isNew && (
                                         <span class="absolute top-3 right-3 bg-black/90 border border-purple-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-[0_0_10px_rgba(168,85,247,0.4)] z-20 flex items-center gap-1 backdrop-blur-md">
-                                        <span class="relative flex h-2 w-2">
-                                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                          <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                                        </span>
-                                        Nuevo
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                                     </span>
+                                    Nuevo
+                                </span>
                                 )}
 
-                                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
-            flex flex-col items-center justify-center space-y-2 text-white text-center">
-                                    {github && (
-                                            <LinkButtonHover href={github} aria-label={arial_label}>
-                                                <GitHub class="size-6"/>
-                                                Code
-                                            </LinkButtonHover>
-                                    )}
-
-                                    {link && (
-                                            <LinkButtonHover href={link} aria-label={arial_label}>
-                                                <Link class="size-4"/>
-                                                Preview
-                                            </LinkButtonHover>
-                                    )}
+                                {/* Overlay de Hover */}
+                                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center space-y-2 text-white text-center pointer-events-none">
+                                    <div class="pointer-events-auto flex flex-col gap-2">
+                                        {github && (
+                                                <LinkButtonHover href={github} aria-label={arial_label}>
+                                                    <GitHub class="size-6"/>
+                                                    Code
+                                                </LinkButtonHover>
+                                        )}
+                                        {link && (
+                                                <LinkButtonHover href={link} aria-label={arial_label}>
+                                                    <Link class="size-4"/>
+                                                    Preview
+                                                </LinkButtonHover>
+                                        )}
+                                    </div>
                                 </div>
-
                             </a>
                         </div>
                     </div>
@@ -192,26 +119,27 @@ const PROJECTS = [
                             <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
                                 {title}
                             </h3>
-                            {/* Badge de Versión Sutil */}
                             {version && (
                                     <span class="px-2 py-0.5 text-xs font-semibold text-purple-300 bg-purple-900/20 border border-purple-500/30 rounded-md">
-                                        {version}
-                                    </span>
+                                {version}
+                            </span>
                             )}
                         </header>
+
                         <div class="flex flex-wrap mt-2">
                             <ul class="flex flex-wrap mb-2 gap-x-2 gap-y-2">
                                 {tags.map((tag) => (
                                         <li>
-                                    <span class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-3`}>
-                                        <tag.icon class="size-5"/>
+                                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-3 items-center border`}>
+                                        <tag.icon class="size-4"/>
                                         {tag.name}
                                     </span>
                                         </li>
                                 ))}
                             </ul>
 
-                            <div class="text-xl mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                            <p class="text-xl mt-2 text-gray-700 dark:text-gray-400 leading-relaxed text-pretty">{description}</p>
+
                             <footer class="flex items-end justify-start mt-4 gap-x-4">
                                 {github && (
                                         <LinkButton href={github} aria-label={arial_label}>
